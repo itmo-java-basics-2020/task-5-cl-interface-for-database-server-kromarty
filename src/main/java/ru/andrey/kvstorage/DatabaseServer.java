@@ -2,6 +2,7 @@ package ru.andrey.kvstorage;
 
 import ru.andrey.kvstorage.console.*;
 import ru.andrey.kvstorage.exception.DatabaseException;
+import ru.andrey.kvstorage.logic.DatabaseCommands;
 
 public class DatabaseServer {
 
