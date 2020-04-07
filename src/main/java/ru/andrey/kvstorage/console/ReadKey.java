@@ -11,8 +11,13 @@ public class ReadKey implements DatabaseCommand {
     public ReadKey(ExecutionEnvironment Env, String[] Params) {
         env = Env;
         databaseName = Params[1];
-        tableName = Params[2];
-        key = Params[3];
+        try {
+            tableName = Params[2];
+            key = Params[3];
+        } catch (IndexOutOfBoundsException e) {
+            tableName = null;
+            tableName = null;
+        }
     }
 
     @Override

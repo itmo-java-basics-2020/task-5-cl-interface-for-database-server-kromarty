@@ -13,7 +13,13 @@ public class CreateTable implements DatabaseCommand {
     public CreateTable(ExecutionEnvironment Env, String[] Params) {
         env = Env;
         databaseName=Params[1];
-        tableName=Params[2];
+        try {
+            tableName = Params[2];
+        }
+        catch (IndexOutOfBoundsException ex)
+        {
+            tableName = null;
+        }
     }
 
     @Override

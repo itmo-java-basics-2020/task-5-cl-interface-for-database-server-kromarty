@@ -11,17 +11,25 @@ public class UpdateKey implements DatabaseCommand {
     private String tableName;
     private String key;
     private String value;
-    String[] params;
 
     public UpdateKey(ExecutionEnvironment Env, String[] Params) {
         env = Env;
-        params = Params;
+        databaseName = Params[1];
+        try {
+            tableName = Params[2];
+            key = Params[3];
+            value = Params[4];
+        } catch (IndexOutOfBoundsException e) {
+            tableName = null;
+            tableName = null;
+            value = null;
+        }
     }
 
     @Override
     public DatabaseCommandResult execute() throws DatabaseException {
-        if (env.getDatabase(params[1]).isPresent()) {
-            env.getDatabase(params[1]).get().write(params[2], params[3], params[4]);
+        if (env.getDatabase(databaseName).isPresent()) {
+            env.getDatabase(databaseName).get().write(tableName, key, value);
             return DatabaseCommandResult.Success("Successful key update");
         } else {
             return DatabaseCommandResult.Error("Key was updated");
