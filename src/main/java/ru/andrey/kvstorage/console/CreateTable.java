@@ -1,9 +1,6 @@
 package ru.andrey.kvstorage.console;
 
 import ru.andrey.kvstorage.exception.DatabaseException;
-import ru.andrey.kvstorage.logic.Database;
-
-import java.util.Optional;
 
 public class CreateTable implements DatabaseCommand {
     ExecutionEnvironment env;
@@ -12,12 +9,10 @@ public class CreateTable implements DatabaseCommand {
 
     public CreateTable(ExecutionEnvironment Env, String[] Params) {
         env = Env;
-        databaseName=Params[1];
+        databaseName = Params[1];
         try {
             tableName = Params[2];
-        }
-        catch (IndexOutOfBoundsException ex)
-        {
+        } catch (IndexOutOfBoundsException ex) {
             tableName = null;
         }
     }

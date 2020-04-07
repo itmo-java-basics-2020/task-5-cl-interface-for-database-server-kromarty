@@ -27,5 +27,6 @@ public enum DatabaseCommands {
             return new ReadKey(env, params);
         }
     };
+
     public abstract DatabaseCommand getCommand(ExecutionEnvironment env, String[] params);
 }
